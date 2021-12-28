@@ -83,8 +83,24 @@ jobs:
         	nodes-max: 2
         	ssh-access: false
         	ssh-public-key: ''
-        	
-  create-deployment:
+          
+  test-cluster:
+    executor: aws-eks/python3
+    parameters:
+      cluster-name:
+        description: |
+          Name of the EKS cluster
+        type: string
+    steps:
+      - kubernetes/install
+      - aws-eks/update-kubeconfig-with-authenticator:
+          cluster-name: << parameters.cluster-name >>
+      - run:
+          command: |
+            kubectl get services
+          name: Test cluster
+          
+  deployment:
     executor: aws-eks/python3
     parameters:
       cluster-name:
@@ -99,4 +115,25 @@ jobs:
       - kubernetes/create-or-update-resource:
           get-rollout-status: true
           resource-file-path: deployment.yml
-          resource-name: deployment/udacity-capstone-deployment
+          resource-name: deployment/uda-cap-deployment
+          
+  workflows:
+  default:
+    jobs:
+      - build
+      - create-cluster:
+          cluster-name: udacitycapstone
+          requires:
+            - build
+      - test-cluster:
+          cluster-name: udacitycapstone
+          requires:
+            - create-cluster
+      - create-upload-container:
+          requires:
+            - test-cluster
+      - deployment:
+          cluster-name: udacitycapstone
+          requires:
+            - test-cluster
+      
