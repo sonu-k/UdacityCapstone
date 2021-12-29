@@ -35,14 +35,14 @@ jobs:
   
   create-upload-container:
     machine: true
-    steps:
-    - checkout
-    - run:
-      name: build and upload docker container
-      no_output_timeout: 30m
-      command: |
-        ./run_docker.sh
-        ./upload_docker.sh ${DOCKER_USERNAME} ${DOCKER_PASSWORD}
+      steps:
+      - checkout
+      - run:
+        name: build and upload docker container
+        no_output_timeout: 30m
+        command: |
+          ./run_docker.sh
+          ./upload_docker.sh ${DOCKER_USERNAME} ${DOCKER_PASSWORD}
   
   create-cluster:
     executor: aws-eks/python3
