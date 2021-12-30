@@ -15,19 +15,19 @@ jobs:
             - v1-dependencies-{{ checksum "requirements.txt"}}
             - v1-dependencies- #fallback to using the latest cache if no exact match is found
       - run:
-        name: Install dependencies
-        command: |
-          python -m venv venv
-          . venv/bin/activate
-          make install
-          # Installing Hadolint
-          wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&
-          chmod +x /bin/hadolint 
+          name: Install dependencies
+          command: |
+            python -m venv venv
+            . venv/bin/activate
+            make install
+            # Installing Hadolint
+            wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&
+            chmod +x /bin/hadolint 
       - run:
-        name: Run lint
-        command: |
-          . venv/bin/activate
-          make lint
+          name: Run lint
+          command: |
+            . venv/bin/activate
+            make lint
       - save_cache:
           paths:
             - ./venv
@@ -38,11 +38,11 @@ jobs:
     steps:
       - checkout
       - run:
-        name: build and upload docker container
-        no_output_timeout: 30m
-        command: |
-          ./run_docker.sh
-          ./upload_docker.sh ${DOCKER_USERNAME} ${DOCKER_PASSWORD}
+          name: build and upload docker container
+          no_output_timeout: 30m
+          command: |
+            ./run_docker.sh
+            ./upload_docker.sh ${DOCKER_USERNAME} ${DOCKER_PASSWORD}
         
   create-cluster:
     executor: aws-eks/python3
@@ -92,9 +92,9 @@ jobs:
         - aws-eks/update-kubeconfig-with-authenticator:
             cluster-name: << parameters.cluster-name >>
         - run:
-          command: |
-            kubectl get services
-          name: Test cluster
+            command: |
+              kubectl get services
+            name: Test cluster
           
   deployment:
     executor: aws-eks/python3
