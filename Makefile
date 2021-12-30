@@ -1,5 +1,6 @@
 setup:
-	python3 -m venv ~/.UdacityCapstone && source ~/.UdacityCapstone/bin/activate
+	python3 -m venv ~/.UdacityCapstone &&\
+	source ~/.UdacityCapstone/bin/activate
 
 install:
 	# This should be run from inside a virtualenv
@@ -12,4 +13,4 @@ lint:
 	hadolint Dockerfile
 	pylint app.py
 
-all: install test lint
+all: setup install lint
