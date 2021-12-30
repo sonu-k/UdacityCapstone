@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: udacity-capstone
-        image: sonkumar0895/udacitycapstone:v2
+        image: sonkumar0895/udacitycapstone:v1
         ports:
         - containerPort: 80
 
