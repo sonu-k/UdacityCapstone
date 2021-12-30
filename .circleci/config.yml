@@ -113,23 +113,23 @@ jobs:
           resource-file-path: deployment.yml
           resource-name: deployment/uda-cap-deployment
           
-  workflows:
-    default:
-      jobs:
-        - build
-        - create-cluster:
-            cluster-name: udacitycapstone
-            requires:
-              - build
-        - test-cluster:
-            cluster-name: udacitycapstone
-            requires:
-              - create-cluster
-        - create-upload-container:
-            requires:
-              - test-cluster
-        - deployment:
-            cluster-name: udacitycapstone
-            requires:
-              - test-cluster
+workflows:
+  default:
+    jobs:
+      - build
+      - create-cluster:
+          cluster-name: udacitycapstone
+          requires:
+            - build
+      - test-cluster:
+          cluster-name: udacitycapstone
+          requires:
+            - create-cluster
+      - create-upload-container:
+          requires:
+            - test-cluster
+      - deployment:
+          cluster-name: udacitycapstone
+          requires:
+            - test-cluster
       
