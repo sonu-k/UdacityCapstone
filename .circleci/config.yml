@@ -41,14 +41,8 @@ jobs:
           name: build and upload docker container
           no_output_timeout: 30m
           command: |
-            docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
-            docker build -t udacitycapstone .
-            docker images
-            
-            export dockerpath=sonkumar0895/udacitycapstone
-            echo "Docker ID and Image: $dockerpath"
-            docker tag udacitycapstone:latest sonkumar0895/udacitycapstone:latest
-            docker push sonkumar0895/udacitycapstone:latest
+            ./run_docker.sh
+            ./upload_docker.sh
         
   create-cluster:
     executor: aws-eks/python3
