@@ -129,8 +129,10 @@ workflows:
       - create-upload-container:
           requires:
             - test-cluster
-      # - deployment:
-      #     cluster-name: udacitycapstone
-      #     requires:
-      #       - test-cluster
+      - deployment:
+          cluster-name: udacitycapstone
+          requires:
+            - test-cluster
+            
+            
       
