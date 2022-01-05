@@ -41,6 +41,7 @@ jobs:
           name: build and upload docker container
           no_output_timeout: 30m
           command: |
+            docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
             docker build -t udacitycapstone .
             docker images
             
