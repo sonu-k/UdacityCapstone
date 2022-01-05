@@ -2,7 +2,7 @@
 # This file tags and uploads an image to Docker Hub
 
 # Assumes that an image is built via `run_docker.sh`
-
+docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
 # Step 1:
 # Create dockerpath
 export dockerpath=sonkumar0895/udacitycapstone
