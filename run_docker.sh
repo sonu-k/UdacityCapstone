@@ -10,4 +10,4 @@ docker build -t cap-app .
 docker images
 # Step 3: 
 # Run flask app
-docker run -p 8000:80 cap-app
+#docker run -p 8000:80 cap-app

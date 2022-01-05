@@ -118,10 +118,10 @@ workflows:
   default:
     jobs:
       - build
-      - create-cluster:
-          cluster-name: udacitycapstone
-          requires:
-            - build
+      # - create-cluster:
+      #     cluster-name: udacitycapstone
+      #     requires:
+      #       - build
       - test-cluster:
           cluster-name: udacitycapstone
           requires:
