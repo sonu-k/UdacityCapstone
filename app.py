@@ -10,7 +10,7 @@ def home_page():
     """
     home page html site
     """
-    return render_template('index.html')
+    return " Hi this is Sonu :)"
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
