@@ -1,7 +1,7 @@
 """
   Main flask app module. Define routes and app configurations
 """
-from flask import Flask, render_template
+from flask import Flask
 
 app = Flask(__name__)
 
