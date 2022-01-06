@@ -14,10 +14,20 @@ spec:
     spec:
       containers:
       - name: udacitycapstone
-        image: sonkumar0895/udacitycapstone:latest
-        imagePullPolicy: Always
+        image: sonkumar0895/udacitycapstone
+        imagePullPolicy: "Always"
         ports:
         - containerPort: 80
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+        
 
 ---
 apiVersion: v1
