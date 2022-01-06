@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy source code to working directory
 COPY . app.py /app/
 COPY . requirements.txt /app/
-COPY webpage /app/
+COPY templates /app/
 ## Step 3:
 # Install packages from requirements.txt
 # hadolint ignore=DL3013
