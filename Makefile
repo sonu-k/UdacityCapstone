@@ -11,6 +11,6 @@ install:
 
 lint:
 	hadolint Dockerfile
-	#pylint app.py
+	pylint app.py
 
 all: install lint
