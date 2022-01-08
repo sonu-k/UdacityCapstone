@@ -37,3 +37,7 @@ Install necessary requirements:
 ## Run application in a Docker container
 
 `./run_docker.sh`
+
+## Upload Docker Image to DockerHub
+
+`./upload_docker.sh`
