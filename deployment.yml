@@ -22,7 +22,7 @@ spec:
       containers:
       - name: udacitycapstone
         image: sonkumar0895/udacitycapstone
-        #imagePullPolicy: "Always"
+        imagePullPolicy: "Always"
         resources:
           requests:
             cpu: 100m
