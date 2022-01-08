@@ -136,7 +136,7 @@ workflows:
       #     cluster-name: udacitycapstone
       #     requires:
       #       - create-cluster
-      - create-upload-container
+      # - create-upload-container
       #     requires:
       #       - test-cluster
       - deployment:
