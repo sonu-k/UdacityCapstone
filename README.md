@@ -1,5 +1,7 @@
 # Udacity Capstone Project
 
+Circleci status badge: [![CircleCI](https://circleci.com/gh/sonu-k/UdacityCapstone/tree/main.svg?style=svg)](https://circleci.com/gh/sonu-k/UdacityCapstone/tree/main)
+
 This project demonstrates DevOps skills obtained from Cloud DevOps nanodegree program. These include:
 
 1) Building a CI/CD pipeline using circleci
