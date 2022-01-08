@@ -19,4 +19,4 @@ RUN pip install --upgrade pip &&\
 EXPOSE 8080
 ## Step 5:
 # Run app.py at container launch
-CMD ["python", "app.py"]
+CMD ["python", "app.py","runserver","0.0.0.0:8080"]
